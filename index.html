@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감정소모 자가진단</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="assessment-card" aria-live="polite">
+      <div id="start-screen" class="screen active">
+        <p class="eyebrow">Self Check</p>
+        <h1>감정소모 자가진단</h1>
+        <p class="intro">
+          최근의 정서적 피로, 집중력, 수면과 일상 반응을 차분히 살펴보는 자기 점검입니다.
+          각 문항을 읽고 현재 나에게 가장 가까운 선택지를 골라주세요.
+        </p>
+        <button class="primary-button" id="start-button" type="button">진단 시작하기</button>
+      </div>
+
+      <div id="question-screen" class="screen">
+        <div class="progress-header">
+          <span id="progress-count">1 / 15</span>
+          <span id="progress-label">진행 중</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <p class="question-number" id="question-number">문항 1</p>
+        <h2 class="question-text" id="question-text"></h2>
+
+        <fieldset class="options-group">
+          <legend class="sr-only">응답 선택</legend>
+          <div id="options-list" class="options-list"></div>
+        </fieldset>
+
+        <p class="message" id="message" role="alert"></p>
+
+        <div class="actions">
+          <button class="secondary-button" id="prev-button" type="button">이전</button>
+          <button class="primary-button" id="next-button" type="button">다음</button>
+        </div>
+      </div>
+
+      <div id="result-screen" class="screen">
+        <p class="eyebrow">Result</p>
+        <h2 class="result-title">진단 결과</h2>
+        <div class="result-badge" id="result-badge"></div>
+
+        <div class="result-grid">
+          <div class="result-item">
+            <span>총점</span>
+            <strong id="result-score"></strong>
+          </div>
+          <div class="result-item">
+            <span>판정</span>
+            <strong id="result-judgement"></strong>
+          </div>
+          <div class="result-item full">
+            <span>조치 사항</span>
+            <strong id="result-action"></strong>
+          </div>
+        </div>
+
+        <p class="result-description" id="result-description"></p>
+        <p class="notice">
+          이 결과는 의학적 진단이 아니라 자기 점검용 자료입니다. 심리적 어려움이 지속되거나
+          자살 충동, 극심한 불안, 일상 기능 저하가 있다면 전문기관의 도움을 받으시기 바랍니다.
+        </p>
+
+        <div class="actions result-actions">
+          <button class="secondary-button" id="copy-button" type="button">공유 문구 복사</button>
+          <button class="primary-button" id="restart-button" type="button">다시 진단하기</button>
+        </div>
+        <p class="message" id="copy-message" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
