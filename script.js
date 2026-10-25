@@ -126,7 +126,7 @@ function renderQuestion() {
   questionText.textContent = currentQuestion.text;
   message.textContent = "";
   prevButton.disabled = state.currentIndex === 0;
-  nextButton.textContent = state.currentIndex === questions.length - 1 ? "결과 보기" : "다음";
+  nextButton.hidden = true;
 
   optionsList.innerHTML = "";
   labels.forEach((label, index) => {
@@ -141,9 +141,10 @@ function renderQuestion() {
 
     const input = option.querySelector("input");
     input.checked = state.answers[state.currentIndex] === index;
-    input.addEventListener("change", () => {
+    input.addEventListener("click", () => {
       state.answers[state.currentIndex] = index;
       message.textContent = "";
+      goToNext();
     });
 
     optionsList.appendChild(option);
